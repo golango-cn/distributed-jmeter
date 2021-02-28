@@ -15,12 +15,18 @@ slave2 -> 192.168.1.102
 
 在slave1上运行：
 ```shell
-docker run -it --network=host -e JMETER_RUN_MODEL=slave -e JMETER_REMOTE_HOSTS=192.168.1.101 -e JMETER_SERVER_HOST=192.168.1.101 distributed-jmeter
+docker run -it --network=host -e JMETER_RUN_MODEL=slave -e JMETER_REMOTE_HOSTS=192.168.1.101 \
+    -e JMETER_SERVER_HOST=192.168.1.101 \
+    distributed-jmeter
 ```
 
 在slave2上运行：
 ```shell
-docker run -it --network=host -e JMETER_RUN_MODEL=slave -e JMETER_REMOTE_HOSTS=192.168.1.102 -e JMETER_SERVER_HOST=192.168.1.102 distributed-jmeter
+docker run -it --network=host \
+    -e JMETER_RUN_MODEL=slave \
+    -e JMETER_REMOTE_HOSTS=192.168.1.102 \
+    -e JMETER_SERVER_HOST=192.168.1.102 \
+    distributed-jmeter
 ```
 
 ### master运行
@@ -35,6 +41,6 @@ docker run -it --network=host \
     -e JMETER_SERVER_HOST=192.168.1.100 \
     -w /works -v ${PWD}:/works \
     distributed-jmeter -r -n -t nginx.jmx -l nginx.jtl -e -o ./out
-    
+
 ```
 
