@@ -17,7 +17,8 @@ slave2 -> 192.168.1.102
 ```shell
 docker run -it \
     --network=host \
-    -e JMETER_RUN_MODEL=slave -e JMETER_REMOTE_HOSTS=192.168.1.101 \
+    -e JMETER_RUN_MODEL=slave \
+    -e JMETER_REMOTE_HOSTS=192.168.1.101 \
     -e JMETER_SERVER_HOST=192.168.1.101 \
     distributed-jmeter
 ```
