@@ -7,11 +7,6 @@ ENV	JMETER_BIN	${JMETER_HOME}/bin
 
 ENV	JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
 
-# RUN mkdir -p /opt \
-#     && tar -xzf /tmp/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
-#     && rm -rf /tmp/apache-jmeter-${JMETER_VERSION}.tgz
-
-
 ARG TZ="Europe/Amsterdam"
 RUN    apk update \
 	&& apk upgrade \
@@ -33,7 +28,6 @@ ENV JMETER_REMOTE_HOSTS 127.0.0.1
 ENV JMETER_SERVER_HOST 127.0.0.1
 ENV JMETER_RUN_MODEL master
 
-# Entrypoint has same signature as "jmeter" command
 COPY entrypoint.sh /
 
 WORKDIR	${JMETER_HOME}
