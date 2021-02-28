@@ -15,14 +15,17 @@ slave2 -> 192.168.1.102
 
 在slave1上运行：
 ```shell
-docker run -it --network=host -e JMETER_RUN_MODEL=slave -e JMETER_REMOTE_HOSTS=192.168.1.101 \
+docker run -it \
+    --network=host \
+    -e JMETER_RUN_MODEL=slave -e JMETER_REMOTE_HOSTS=192.168.1.101 \
     -e JMETER_SERVER_HOST=192.168.1.101 \
     distributed-jmeter
 ```
 
 在slave2上运行：
 ```shell
-docker run -it --network=host \
+docker run -it \
+    --network=host \
     -e JMETER_RUN_MODEL=slave \
     -e JMETER_REMOTE_HOSTS=192.168.1.102 \
     -e JMETER_SERVER_HOST=192.168.1.102 \
