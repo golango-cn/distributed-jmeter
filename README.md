@@ -35,5 +35,6 @@ docker run -it --network=host \
     -e JMETER_SERVER_HOST=192.168.1.100 \
     -w /works -v ${PWD}:/works \
     distributed-jmeter -r -n -t nginx.jmx -l nginx.jtl -e -o ./out
+    
 ```
 
